@@ -5,6 +5,7 @@
 #include <memory>
 #include <iostream>
 #include <iterator>
+#include <algorithm>
 
 
 
@@ -144,7 +145,8 @@ void TStack<T, Allocator>::pop() {
 	if (head.get() == nullptr) {
 		throw std::logic_error("Stack is empty\n");
 	} else {
-		head = std::move(head->following);
+		auto tmp = std::move(head->following);
+		head = std::move(tmp);
 	}
 }
 
@@ -197,6 +199,9 @@ void TStack<T, Allocator>::insert(forward_iterator& it, const T& value) {
 
 template <class T, class Allocator>
 void TStack<T, Allocator>::erase(const forward_iterator& it) {
+	if (it.ptr_ == nullptr) {
+		throw std::logic_error("Out of range\n");
+	}
 	if (it.ptr_ == head.get()) {
 		this->pop();
 		return;
@@ -207,8 +212,10 @@ void TStack<T, Allocator>::erase(const forward_iterator& it) {
 	}
 	if (i.ptr_ == nullptr) {
 		throw std::logic_error ("Out of range\n");
+
 	}
-	i.ptr_->following = std::move(it.ptr_->following);
+	auto tmp = std::move(it.ptr_->following);
+	i.ptr_->following = std::move(tmp);
 
 	return;
 

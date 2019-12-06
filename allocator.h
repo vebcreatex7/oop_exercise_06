@@ -2,12 +2,11 @@
 #define MY_ALLOCATOR_H 1
 
 #include <cstdint>
-#include <cstdint>
+
 
 #include <exception>
 #include <iostream>
 #include <type_traits>
-#include "queue.h"
 #include "stack.h"
 
 template<class T, size_t ALLOC_SIZE>

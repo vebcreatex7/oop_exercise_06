@@ -1,4 +1,3 @@
-#include "queue.h"
 #include "stack.h"
 #include "allocator.h"
 #include "trapezoid.h"
@@ -6,15 +5,9 @@
 #include <map>
 #include <string>
 
-struct number {
-	int i;
-	void print() {
-		std::cout << i << std::endl;
-	}
-};
 
 int main() {
-	containers::TStack<TTrapezoid<int>, my_allocator<TTrapezoid<int>, 1000>> s;
+	containers::TStack<TTrapezoid<int>, my_allocator<TTrapezoid<int>, 500>> s;
 	std::string cmd;
 	int index;
 	std::cout << "push - to push figure to stack\n"
