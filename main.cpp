@@ -100,7 +100,7 @@ int main() {
 				tree[i] = i * i;
 			}
 			std::for_each(tree.begin(), tree.end(), [](std::pair<int, int> X) {std::cout << X.first << " " << X.second << " ";});
-			std::
+			std::cout << std::endl;
 		} else {
 			std::cout << "Wrong comand\n";
 			continue;
