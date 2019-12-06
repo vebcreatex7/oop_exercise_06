@@ -8,6 +8,7 @@
 #include <iostream>
 #include <type_traits>
 #include "queue.h"
+#include "stack.h"
 
 template<class T, size_t ALLOC_SIZE>
     struct my_allocator {
@@ -41,7 +42,7 @@ template<class T, size_t ALLOC_SIZE>
         char* pool_begin;
         char* pool_end;
         char* pool_tail;
-        containers::TQueue<char*> free_blocks;
+        containers::TStack<char*> free_blocks;
     };
 
     template<class T, size_t ALLOC_SIZE>
