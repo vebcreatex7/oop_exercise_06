@@ -38,9 +38,9 @@ namespace containers {
  		T& top();
  		void push(const T& value);
  		bool empty();
- 		void erase(const forward_iterator& it);
- 		void insert(const forward_iterator& it, const T& value);
- 		void advance(forward_iterator& it, int idx);
+ 		//void erase(const forward_iterator& it);
+ 		//void insert(const forward_iterator& it, const T& value);
+ 		//void advance(forward_iterator& it, int idx);
 
  		void print();
  	private:
