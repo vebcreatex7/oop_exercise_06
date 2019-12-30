@@ -1,13 +1,13 @@
 #include "stack.h"
 #include "allocator.h"
-#include "trapezoid.h"
+#include "rec.h"
 #include <algorithm>
 #include <map>
 #include <string>
 
 
 int main() {
-	containers::TStack<TTrapezoid<int>, my_allocator<TTrapezoid<int>, 500>> s;
+	containers::TStack<TRectangle<int>, my_allocator<TRectangle<int>, 500>> s;
 	std::string cmd;
 	int index;
 	std::cout << "push - to push figure to stack\n"
@@ -22,9 +22,9 @@ int main() {
 		std::cin >> cmd;
 		if (cmd == "push") {
 			std::cout << "enter coordinates\n";
-			TTrapezoid<int> fig;
+			TRectangle<int> fig;
 			try {
-				TTrapezoid<int> tmp(std::cin);
+				TRectangle<int> tmp(std::cin);
 				fig = tmp;
 			} catch(std::exception& err) {
 				std::cout << err.what() << std::endl;
@@ -42,9 +42,9 @@ int main() {
 				continue;
 			}
 			std::cout << "enter coordinates\n";
-			TTrapezoid<int> fig;
+			TRectangle<int> fig;
 			try {
-				TTrapezoid<int> tmp(std::cin);
+				TRectangle<int> tmp(std::cin);
 				fig = tmp;
 			} catch(std::exception& err) {
 				std::cout << err.what() << std::endl;
@@ -84,7 +84,7 @@ int main() {
 			}
 			(s.top()).Print();
 		} else if (cmd == "for_each") {
-			std::for_each(s.begin(), s.end(), [] (TTrapezoid<int> tmp) {return tmp.Print();});
+			std::for_each(s.begin(), s.end(), [] (TRectangle<int> tmp) {return tmp.Print();});
 		} else if (cmd == "exit") {
 			break;
 		} else if (cmd == "map"){
